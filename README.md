@@ -1,2 +1,2 @@
-# classComponentsReactPerUser
+# counterClassComponents
 Created with CodeSandbox
