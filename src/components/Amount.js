@@ -14,8 +14,6 @@ class Amount extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-
-    const value = event.target.amount.value;
     this.props.amountHandle(this.state.amount);
   };
 

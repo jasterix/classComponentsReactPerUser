@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import Amount from "./Amount";
 
 class Counter extends Component {
@@ -11,21 +12,25 @@ class Counter extends Component {
   };
 
   render() {
-    let count = this.props.count;
+    const { count, amount, name } = this.props;
+
     return (
-      <div>
-        <h1>Counter: {count}</h1>
-        <button onClick={this.handleIncrement}>
-          increment +{this.props.amount}{" "}
-        </button>
-        <button onClick={this.handleDecrement}>
-          decrement -{this.props.amount}
-        </button>
-        <h2> Increase by: </h2>
-        <Amount
-          amount={this.props.amount}
-          amountHandle={this.props.updateAmount}
-        />
+      <div style={{ backgroundColor: "grey", margin: "10px" }}>
+        <h1>{name}</h1>
+        <h3>Count: {count}</h3>
+        <div style={{ justifyContent: "center" }}>
+          <button onClick={this.handleIncrement}>
+            increment +{this.props.amount}{" "}
+          </button>
+          <button onClick={this.handleDecrement}>
+            decrement -{this.props.amount}
+          </button>
+          <h2> Increase by: </h2>
+          <Amount
+            amount={this.props.amount}
+            amountHandle={this.props.updateAmount}
+          />
+        </div>
       </div>
     );
   }
