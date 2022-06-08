@@ -26,6 +26,7 @@ class Amount extends Component {
           <label>
             <strong>Amount</strong>
           </label>
+
           <input
             name="amount"
             type="number"

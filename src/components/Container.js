@@ -4,8 +4,7 @@ import axios from "axios";
 
 class Container extends Component {
   state = {
-    count: 0,
-    amount: 1,
+    total: 0,
     users: []
   };
 
@@ -20,37 +19,38 @@ class Container extends Component {
       });
   }
 
+  handleTotalIncrement = (value) => {
+    this.setState({ total: this.state.total + value });
+  };
+
+  handleTotalDecrement = (value) => {
+    this.setState({ total: this.state.total - value });
+  };
+
   handleIncrement = (event) => {
     const currentState = this.state.count;
     const amount = this.state.amount;
-    return this.setState({ count: currentState + amount });
+    this.setState({ count: currentState + amount });
   };
 
   handleDecrement = () => {
     const currentState = this.state.count;
     const amount = this.state.amount;
-    return this.setState({ count: currentState - amount });
-  };
-
-  handleUpdateAmount = (value) => {
-    this.setState({ amount: +value });
+    this.setState({ count: currentState - amount });
   };
 
   render() {
     return (
       <div>
-        <h2> Total Count: {this.state.count}</h2>
+        <h2> Total Count: {this.state.total}</h2>
         {this.state.users
           ? this.state.users.map((user) => {
               return (
                 <Counter
                   key={user.id}
                   name={user.name}
-                  count={this.state.count}
-                  amount={this.state.amount}
-                  increment={this.handleIncrement}
-                  decrement={this.handleDecrement}
-                  updateAmount={this.handleUpdateAmount}
+                  increment={this.handleTotalIncrement}
+                  decrement={this.handleTotalDecrement}
                 />
               );
             })
